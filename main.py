@@ -1,22 +1,8 @@
 import sys
-from PyQt5.QtWidgets import (
-    QApplication, 
-    QDialog, 
-    QMessageBox,
-)
-
+from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 import pymysql
 from usuario import Ui_Dialog
 
-import mysql.connector 
-from PyQt5.QtWidgets import (
-    QApplication, 
-    QMainWindow, 
-    QMessageBox,
-)
-
-# Importe a classe gerada pelo seu arquivo (ajuste o nome do arquivo se necessario)
-from usuario import Ui_Dialog
 
 class ControleFicha(QDialog):
       def __init__(self):
@@ -78,6 +64,7 @@ class ControleFicha(QDialog):
                         sql = "DELETE FROM usuarios WHERE nome = %s"
                         cursor.execute(sql, (nome,))
                         db.commit()
+                  
                         QMessageBox.information(self, "Excluindo", f"Usuário {nome} excluido com sucesso!")
                         self.ui.txt_.clear()
                   except Exception as e:
